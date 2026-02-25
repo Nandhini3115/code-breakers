@@ -9,7 +9,7 @@ import Result from "./pages/Result";
 import AdminDashboard from "./pages/AdminDashboard";
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/code-breakers/">
       <Routes>
         {/* ✅ Login First */}
         <Route path="/" element={<Login />} />

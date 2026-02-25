@@ -23,18 +23,24 @@ export default function AdminDashboard() {
       return;
     }
 
-    await axios.post(`${API}/api/participants/add`, {
-      name,
-      college,
-      password,
-    });
+    try {
+      await axios.post(`${API}/api/participants/add`, {
+        name,
+        college,
+        password,
+      });
 
-    alert("Participant Added Successfully ✅");
+      alert("Participant Added Successfully ✅");
 
-    setName("");
-    setCollege("");
-    setPassword("");
-    fetchParticipants();
+      setName("");
+      setCollege("");
+      setPassword("");
+      fetchParticipants();
+    } catch (error) {
+      console.error("Add Participant Error:", error);
+      const msg = error.response?.data?.message || "Failed to add participant ❌";
+      alert(msg);
+    }
   };
 
   return (
