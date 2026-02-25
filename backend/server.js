@@ -10,13 +10,12 @@ const participantRoutes = require("./routes/participantRoutes");
 const app = express();
 
 // Middleware
+app.use(cors({
+  origin: ["http://localhost:5173", "https://nandhini3115.github.io"],
+  methods: ["GET", "POST", "OPTIONS", "PUT"],
+  credentials: true
+}));
 app.use(express.json());
-app.use(
-  cors({
-    origin: "*", // update with your Vercel URL after deployment
-    methods: ["GET", "POST", "OPTIONS", "PUT"],
-  })
-);
 
 // Connect to DB
 connectDB();
