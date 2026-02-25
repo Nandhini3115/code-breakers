@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import API from "../api";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -26,14 +27,14 @@ export default function Login() {
     // ✅ Participant Login
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/participants/login",
+        `${API}/api/participants/login`,
         {
           name: username,
           password: password,
         }
       );
 
-      
+
 
       // Store participant ID
       localStorage.setItem("participantId", res.data.participant._id);

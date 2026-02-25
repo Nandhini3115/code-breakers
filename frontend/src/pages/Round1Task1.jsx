@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import API from "../api";
 
 export default function Round1Task1() {
   const navigate = useNavigate();
@@ -71,7 +72,7 @@ export default function Round1Task1() {
       if (!participantId) return;
 
       await axios.put(
-        `http://localhost:5000/api/participants/updateScore/${participantId}`,
+        `${API}/api/participants/updateScore/${participantId}`,
         {
           task: "round1task1",
           score: score,

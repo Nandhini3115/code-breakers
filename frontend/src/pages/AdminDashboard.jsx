@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import API from "../api";
 
 export default function AdminDashboard() {
   const [name, setName] = useState("");
@@ -8,7 +9,7 @@ export default function AdminDashboard() {
   const [participants, setParticipants] = useState([]);
 
   const fetchParticipants = async () => {
-    const res = await axios.get("http://localhost:5000/api/participants/all");
+    const res = await axios.get(`${API}/api/participants/all`);
     setParticipants(res.data);
   };
 
@@ -22,7 +23,7 @@ export default function AdminDashboard() {
       return;
     }
 
-    await axios.post("http://localhost:5000/api/participants/add", {
+    await axios.post(`${API}/api/participants/add`, {
       name,
       college,
       password,
@@ -145,10 +146,10 @@ export default function AdminDashboard() {
                     index === 0
                       ? "#fef9c3"
                       : index === 1
-                      ? "#e5e7eb"
-                      : index === 2
-                      ? "#fcd7aa"
-                      : "white",
+                        ? "#e5e7eb"
+                        : index === 2
+                          ? "#fcd7aa"
+                          : "white",
                   fontWeight: index < 3 ? "600" : "400",
                   transition: "0.2s",
                 }}

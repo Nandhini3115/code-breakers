@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import API from "../api";
 
 const TOTAL_TIME = 20 * 60; // 20 minutes
 
@@ -109,7 +110,7 @@ export default function Round1Task2() {
     setQState(index, { runState: "running", stdout: "", errorMsg: "" });
 
     try {
-      const res = await axios.post("http://localhost:5000/api/code/judge", {
+      const res = await axios.post(`${API}/api/code/judge`, {
         code,
         language: effectiveLang,
         expectedOutput: questions[index].expectedOutput,
@@ -170,7 +171,7 @@ export default function Round1Task2() {
         return;
       }
       await axios.put(
-        `http://localhost:5000/api/participants/updateScore/${participantId}`,
+        `${API}/api/participants/updateScore/${participantId}`,
         { task: taskKey, score }
       );
     } catch (error) {

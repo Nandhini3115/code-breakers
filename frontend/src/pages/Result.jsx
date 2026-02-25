@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import API from "../api";
 
 export default function Result() {
   const [participant, setParticipant] = useState(null);
@@ -17,7 +18,7 @@ export default function Result() {
         }
 
         // Fetch all participants and find the one matching this ID
-        const res = await axios.get("http://localhost:5000/api/participants/all");
+        const res = await axios.get(`${API}/api/participants/all`);
         const found = res.data.find((p) => p._id === participantId);
 
         if (!found) {

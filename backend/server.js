@@ -1,4 +1,5 @@
 // server.js
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db"); // your MongoDB connection
@@ -12,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5173", // your frontend
+    origin: "*", // update with your Vercel URL after deployment
     methods: ["GET", "POST", "OPTIONS", "PUT"],
   })
 );
