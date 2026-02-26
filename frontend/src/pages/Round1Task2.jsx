@@ -32,7 +32,7 @@ const questions = [
 ];
 
 const LANG_PLACEHOLDERS = {
-  python: `# Python example for Q1\nn = 1\nfor i in range(1, 6):\n    for j in range(i):\n        print(n, end=' ')\n        n += 1\n    print()`,
+  python: `# Python { your code here }`,
   c: `// C example\n#include <stdio.h>\nint main() {\n    // your code here\n    return 0;\n}`,
   java: `// Java example\npublic class Main {\n    public static void main(String[] args) {\n        // your code here\n    }\n}`,
 };
