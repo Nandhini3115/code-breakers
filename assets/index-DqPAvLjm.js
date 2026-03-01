@@ -20,7 +20,17 @@ while num > 0:
     rev = rev * 10 + num % 10
     num //= 10
 
-print(rev)`,`def rotate(s, n):
+print(rev)`,`n = 7
+a = 0
+b = 1
+
+print(a, b, end=" ")
+
+for i in range(2, n):
+    c = a + b
+    print(c end=" ")
+    a = b
+    b = c`,`def rotate(s, n):
     n = n % len(s)
     return s[n:] + s[:n]
 
